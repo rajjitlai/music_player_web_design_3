@@ -47,6 +47,7 @@ wavesurfer.on('audioprocess', function () {
           if (!isSeeking) {
                     progress.value = wavesurfer.getCurrentTime();
           }
+          progress.style.background = 'linear-gradient(to right, black, black ' + (progress.value / progress.max) * 100 + '%, yellow ' + (progress.value / progress.max) * 100 + '%, yellow)';
 });
 
 progress.onmousedown = function () {
@@ -63,7 +64,6 @@ progress.onchange = function () {
                     wavesurfer.pause();
                     wavesurfer.seekTo(progress.value / wavesurfer.getDuration());
           }
-          progress.style.background = 'linear-gradient(to right, black, black ' + (progress.value / progress.max) * 100 + '%, yellow ' + (progress.value / progress.max) * 100 + '%, yellow)';
 };
 
 function restartSong() {
